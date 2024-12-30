@@ -1,0 +1,17 @@
+<mat-card>
+  <h2>Selecciona un Vendedor</h2>
+  <mat-form-field appearance="fill">
+    <mat-label>Vendedor</mat-label>
+    <mat-select [(value)]="selectedSeller" (selectionChange)="onSelectionChange($event)">
+      <mat-option *ngFor="let seller of data.sellers" [value]="seller.id">
+        {{ seller.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div class="dialog-actions">
+    <button mat-button (click)="dialogRef.close()">Cancelar</button>
+    <button mat-raised-button color="primary" (click)="onSelectSeller()" [disabled]="!selectedSeller">
+      Seleccionar
+    </button>
+  </div>
+</mat-card>

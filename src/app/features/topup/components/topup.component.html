@@ -1,0 +1,68 @@
+<mat-card class="recarga-card">
+  <h2>Recargas</h2>
+  <form [formGroup]="topUpForm" (ngSubmit)="topUpForm.valid && performTopUp()">
+    <!-- Selección de Operador -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Operador</mat-label>
+      <mat-select formControlName="operator">
+        <mat-option *ngFor="let operator of operators" [value]="operator">
+          <img [src]="operator.image" class="operator-logo" alt="Logo del operador" />
+          {{ operator.name }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="topUpForm.get('operator')?.hasError('required') && topUpForm.get('operator')?.touched">
+        Seleccione un operador.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Campo de Número de Celular -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Número de celular</mat-label>
+      <input
+        matInput
+        formControlName="phoneNumber"
+        placeholder="Ingrese un número de 10 dígitos"
+        aria-label="Número de celular"
+      />
+      <mat-error *ngIf="topUpForm.get('phoneNumber')?.hasError('required') && topUpForm.get('phoneNumber')?.touched">
+        El número de celular es obligatorio.
+      </mat-error>
+      <mat-error *ngIf="topUpForm.get('phoneNumber')?.hasError('pattern') && topUpForm.get('phoneNumber')?.touched">
+        Ingrese un número válido de 10 dígitos.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Botones de Recarga -->
+    <div class="recarga-valores">
+      <button
+        mat-raised-button
+        type="button"
+        *ngFor="let amount of predefinedAmounts"
+        (click)="selectAmount(amount)"
+        [class.selected]="topUpForm.get('amount')?.value === amount"
+      >
+        {{ amount | currency:'COP':'symbol-narrow':'1.0-0' }}
+      </button>
+    </div>
+
+    <!-- Campo de Otro Valor -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Otro valor</mat-label>
+      <input
+        matInput
+        type="text"
+        [value]="topUpForm.get('amount')?.value | currency:'COP':'symbol-narrow':'1.0-0'"
+        (input)="updateAmount($event)"
+        placeholder="Ingrese otro valor"
+        aria-label="Otro valor"
+      />
+    </mat-form-field>
+
+    <!-- Botón de Recargar -->
+    <div class="recarga-boton">
+      <button mat-raised-button color="primary" type="submit" [disabled]="topUpForm.invalid">
+        Recargar
+      </button>
+    </div>
+  </form>
+</mat-card>

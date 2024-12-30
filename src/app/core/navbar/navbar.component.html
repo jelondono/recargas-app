@@ -1,0 +1,8 @@
+<mat-toolbar color="primary" class="navbar">
+  <span>Recargas App</span>
+  <span class="spacer"></span>
+  <div class="seller-info">
+    <span *ngIf="sellerName">{{ sellerName }}</span>
+    <button mat-button *ngIf="sellerName" (click)="openSellerSelectionDialog()">Cambiar vendedor</button>
+  </div>
+</mat-toolbar>

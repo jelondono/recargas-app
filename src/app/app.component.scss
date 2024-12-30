@@ -1,0 +1,52 @@
+.app-container {
+  display: flex;
+  gap: 20px; /* Espaciado entre secciones */
+  padding: 20px; /* Margen interno */
+}
+
+.left-section {
+  flex: 1;
+}
+
+.right-section {
+  flex: 2;
+}
+
+mat-card {
+  padding: 20px;
+  margin: 10px 0; /* Margen entre tarjetas */
+}
+
+.full-width {
+  width: 100%;
+}
+
+.recarga-valores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Separación entre botones */
+  margin-bottom: 10px;
+}
+
+.recarga-valores button {
+  flex: 1 1 calc(33.33% - 10px); /* Botones distribuidos en filas de 3 */
+}
+
+.form-group {
+  margin-bottom: 15px; /* Espaciado entre campos del formulario */
+}
+
+.right-section-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espaciado entre estadísticas e historial */
+}
+
+
+.success-snackbar {
+  background-color: #4caf50;  /* Color verde para éxito */
+}
+
+.error-snackbar {
+  background-color: #f44336;  /* Color rojo para error */
+}

@@ -1,0 +1,20 @@
+<mat-card class="estadisticas-card">
+  <h2>Estadísticas</h2>
+  <div class="report-type-selector">
+    <mat-radio-group [(ngModel)]="reportType" (change)="loadEstadisticas()" color="primary">
+      <mat-radio-button value="seller">Por Vendedor</mat-radio-button>
+      <mat-radio-button value="operator">Por Operador</mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <div class="estadisticas-grid">
+    <mat-card *ngFor="let estadistica of estadisticas" class="estadistica-item" (click)="onCardClick(estadistica)">
+      <mat-card-title>
+        {{ reportType === 'seller' ? estadistica.sellerName : estadistica.operatorName }}
+      </mat-card-title>
+      <mat-card-content>
+        <p><strong>Total Cantidad:</strong> {{ estadistica.totalQuantity }}</p>
+        <p><strong>Total Valor:</strong> {{ estadistica.totalAmount | currency:'COP':'symbol-narrow':'1.0-0' }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</mat-card>

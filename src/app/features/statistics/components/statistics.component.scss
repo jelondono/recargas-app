@@ -1,0 +1,62 @@
+.estadisticas-card {
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.estadisticas-card h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+
+}
+.report-type-selector {
+  margin-bottom: 20px;
+}
+
+.report-type-selector mat-radio-group {
+  display: inline-flex;
+  gap: 20px;
+}
+
+.estadisticas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  /* Ajusta el tamaño de las tarjetas internas */
+  gap: 15px;
+  /* Espacio entre tarjetas internas */
+  justify-content: center;
+}
+
+.estadistica-item {
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+  /* Centra el contenido interno */
+}
+
+.estadistica-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.estadistica-item mat-card-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.estadistica-item mat-card-content p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.estadistica-item:hover mat-card-title {
+  color: #3f51b5;
+}
