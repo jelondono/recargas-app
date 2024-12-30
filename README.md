@@ -75,7 +75,7 @@ src/
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/tu-usuario/proyecto-recargas.git
+   git clone https://github.com/tu-usuario/recargas-app.git
    ```
 2. Navega al directorio del frontend:
    ```bash
