@@ -22,9 +22,7 @@
 .estadisticas-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  /* Ajusta el tamaño de las tarjetas internas */
   gap: 15px;
-  /* Espacio entre tarjetas internas */
   justify-content: center;
 }
 
@@ -36,7 +34,6 @@
   transition: all 0.3s ease;
   cursor: pointer;
   text-align: center;
-  /* Centra el contenido interno */
 }
 
 .estadistica-item:hover {

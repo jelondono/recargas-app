@@ -11,10 +11,10 @@ import { TopUpService } from 'src/app/services/topup/topup.service';
   styleUrls: ['./topup.component.scss'],
 })
 export class TopupComponent implements OnInit {
-  topUpForm: FormGroup; // Formulario para realizar recargas
-  operators: { name: string; value: number; image: string }[] = []; // Lista de operadores
-  predefinedAmounts = [1000, 2000, 3000, 5000, 10000, 20000]; // Valores de recarga predefinidos
-  selectedSellerId: number | null = null; // ID del vendedor seleccionado
+  topUpForm: FormGroup;
+  operators: { name: string; value: number; image: string }[] = [];
+  predefinedAmounts = [1000, 2000, 3000, 5000, 10000, 20000];
+  selectedSellerId: number | null = null;
 
   constructor(
     private readonly formBuilder: FormBuilder,
@@ -23,7 +23,6 @@ export class TopupComponent implements OnInit {
     private readonly sharedService: SharedService,
     private readonly snackBar: MatSnackBar
   ) {
-    // Inicialización del formulario
     this.topUpForm = this.formBuilder.group({
       operator: [null, Validators.required],
       phoneNumber: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
@@ -32,12 +31,10 @@ export class TopupComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Suscripción para obtener el ID del vendedor seleccionado
     this.sellerService.selectedSeller$.subscribe((sellerId) => {
       this.selectedSellerId = sellerId;
     });
 
-    // Cargar la lista de operadores
     this.loadOperators();
   }
 
@@ -79,7 +76,6 @@ export class TopupComponent implements OnInit {
     if (this.topUpForm.valid && this.selectedSellerId) {
       const formData = this.topUpForm.value;
 
-      // Crear el payload con los datos necesarios para la recarga
       const payload = {
         amount: formData.amount,
         quantity: 1,
@@ -87,24 +83,20 @@ export class TopupComponent implements OnInit {
         sellerId: this.selectedSellerId,
       };
 
-      // Llamar al servicio para realizar la recarga
       this.topUpService.sumbitTopUp(payload).subscribe({
         next: () => {
           this.snackBar.open('Recarga realizada con éxito!', 'Cerrar', {
             duration: 3000,
             panelClass: ['success-snackbar'],
           });
-          // Reiniciar el formulario
           this.topUpForm.reset({
             operator: null,
             phoneNumber: '',
             amount: null,
           });
 
-          // Notificar que las estadísticas han sido actualizadas
           this.sharedService.notifyStatsUpdated();
 
-          // Limpiar el estado de validación de los controles del formulario
           Object.keys(this.topUpForm.controls).forEach((controlName) => {
             const control = this.topUpForm.get(controlName);
             if (control) {
