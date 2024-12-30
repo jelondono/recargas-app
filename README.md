@@ -1,27 +1,112 @@
-# RecargasApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.11.
+# Proyecto de Recargas en Línea - Frontend
 
-## Development server
+## Descripción del Proyecto
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Este es el frontend de la aplicación web que permite la venta de recargas en línea. Proporciona funcionalidades para que los usuarios puedan realizar recargas, ver estadísticas de ventas por operador y vendedor, y consultar el historial de recargas.
 
-## Code scaffolding
+### Características principales:
+1. Interfaz intuitiva para realizar recargas.
+2. Estadísticas detalladas por operador y vendedor.
+3. Historial de recargas visualizable en tablas organizadas.
+4. Diseño responsivo y minimalista con Angular Material.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Tecnologías Utilizadas
 
-## Build
+- **Framework**: Angular
+- **Lenguaje**: TypeScript
+- **Diseño**: Angular Material
+- **Comunicación**: HTTP Client para interactuar con la API backend.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Carpetado
 
-## Running unit tests
+```
+src/
+├── app/
+│   ├── core/
+│   │   ├── navbar/
+│   │   │   ├── navbar.component.html
+│   │   │   ├── navbar.component.scss
+│   │   │   ├── navbar.component.ts
+│   │   │   └── navbar.module.ts
+│   ├── features/
+│   │   ├── historical/
+│   │   │   ├── components/
+│   │   │   │   ├── historical.component.html
+│   │   │   │   ├── historical.component.scss
+│   │   │   │   ├── historical.component.spec.ts
+│   │   │   │   └── historical.component.ts
+│   │   │   └── historical.module.ts
+│   │   ├── statistics/
+│   │   │   ├── components/
+│   │   │   │   ├── statistics.component.html
+│   │   │   │   ├── statistics.component.scss
+│   │   │   │   ├── statistics.component.spec.ts
+│   │   │   │   └── statistics.component.ts
+│   │   │   └── statistics.module.ts
+│   │   ├── topup/
+│   │   │   ├── components/
+│   │   │   │   ├── topup.component.html
+│   │   │   │   ├── topup.component.scss
+│   │   │   │   ├── topup.component.spec.ts
+│   │   │   │   └── topup.component.ts
+│   │   │   └── topup.module.ts
+│   ├── services/
+│   │   ├── sellers/
+│   │   │   ├── seller.service.ts
+│   │   ├── statistics/
+│   │   │   ├── statistics.service.ts
+│   │   │   └── statistics.service.spec.ts
+│   │   └── topup/
+│   │       ├── recargas.service.ts
+│   │       └── recargas.service.spec.ts
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Instrucciones para Ejecución
 
-## Running end-to-end tests
+### Requisitos previos
+- Node.js v16+ y npm instalados.
+- Angular CLI instalado globalmente:
+  ```bash
+  npm install -g @angular/cli
+  ```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Pasos para ejecutar el proyecto
 
-## Further help
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/tu-usuario/proyecto-recargas.git
+   ```
+2. Navega al directorio del frontend:
+   ```bash
+   cd frontend
+   ```
+3. Instala las dependencias:
+   ```bash
+   npm install
+   ```
+4. Inicia el servidor de desarrollo:
+   ```bash
+   ng serve
+   ```
+5. Abre tu navegador en `http://localhost:4200`.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Funcionalidades Principales
+
+1. **Venta de recargas**:
+   - Selecciona el operador y el vendedor.
+   - Ingresa el número de celular y el monto de recarga.
+   - Confirmación de recarga exitosa con notificación visual.
+
+2. **Estadísticas**:
+   - Visualización de estadísticas agrupadas por operador y vendedor.
+   - Gráficos y métricas básicas para un análisis rápido.
+
+3. **Historial**:
+   - Tabla con todas las recargas realizadas.
+   - Filtros por operador o vendedor.
+
+## Autor
+Desarrollado por Juan Esteban Londoño.
+
+Para cualquier duda o contribución, no dudes en abrir un issue o enviar un pull request en el repositorio GitHub.
